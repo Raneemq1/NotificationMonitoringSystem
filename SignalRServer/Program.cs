@@ -24,7 +24,7 @@ static IHostBuilder CreateHostBuilder(string[] args) =>
                       endpoints.MapHub<AlertHub>("/AlertHub");
                   });
               });
-              var config = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
+              var config = new ConfigurationBuilder().SetBasePath(AppContext.BaseDirectory).AddJsonFile("appsettings.json", optional: false, reloadOnChange: true).Build();
               string url = config["SignalRConfig:SignalRUrl"];
               webBuilder.UseUrls(url);
           });

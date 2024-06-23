@@ -3,7 +3,7 @@ using StatisticsServer.Helpers;
 using StatisticsServer.Publishers;
 using System.Text.Json;
 
-var config = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
+var config = new ConfigurationBuilder().SetBasePath(AppContext.BaseDirectory).AddJsonFile("appsettings.json").Build();
 int intervalTime = int.Parse(config["ServerStatisticsConfig:SamplingIntervalSeconds"])*1000;
 string serverIdentifier ="ServerStatistics:<"+config["ServerStatisticsConfig:ServerIdentifier"]+">";
 PublisherRabbitMQ publisher = new(serverIdentifier);

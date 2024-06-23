@@ -12,7 +12,7 @@ namespace StatisticsClient.Helpers
 
         public AlertHelper()
         {
-            var config = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
+            var config = new ConfigurationBuilder().SetBasePath(AppContext.BaseDirectory).AddJsonFile("appsettings.json").Build();
             _cpuAnaomlyPercentage = double.Parse(config["AnomalyDetectionConfig:CpuUsageAnomalyThresholdPercentage"]);
             _memoryAnaomlyPercentage = double.Parse(config["AnomalyDetectionConfig:MemoryUsageAnomalyThresholdPercentage"]);
             _memoryThresoldPercentage = double.Parse(config["AnomalyDetectionConfig:MemoryUsageThresholdPercentage"]);

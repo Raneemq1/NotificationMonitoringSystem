@@ -5,6 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <BaseOutputPath>bin/</BaseOutputPath>
   </PropertyGroup>
 	
 	<ItemGroup>
@@ -14,13 +15,13 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <ProjectReference Include="..\StatisticsClient\StatisticsClient\StatisticsClient.csproj" />
+	  <ProjectReference Include="..\StatisticsClient\StatisticsClient.csproj" />
 	  <ProjectReference Include="..\StatisticsServer\StatisticsServer.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="appsettings.json">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
+    <None Update="..\Config\appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
